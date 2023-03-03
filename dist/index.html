@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="shoutcut icon" href="assets/favicon.ico" />
+		<title>Document</title>
+	<script defer src="main.522976082d0fc92737be.js"></script><link href="main.82c3521af9b1f597d260.css" rel="stylesheet"></head>
+	<body>
+		<div id="wrapper">
+			<div class="blur">
+				<div class="main">
+					<h1>Weather Sounds</h1>
+					<div class="content">
+						<div class="sound-item summer">
+							<img src="assets/sun.svg" alt="summer-icon" />
+						</div>
+						<div class="sound-item rainy">
+							<img src="assets/cloud-rain.svg" alt="rain-icon" />
+						</div>
+						<div class="sound-item winter">
+							<img src="assets/cloud-snow.svg" alt="rain-icon" />
+						</div>
+					</div>
+					<audio controls id="audio-summer" autoplay="false">
+						<source src="assets/summer.mp3" type="audio/ogg" />
+					</audio>
+
+					<audio controls id="audio-rain" autoplay="false">
+						<source src="assets/rain.mp3" type="audio/ogg" />
+					</audio>
+
+					<audio controls id="audio-winter" autoplay="false">
+						<source src="assets/winter.mp3" type="audio/ogg" />
+					</audio>
+
+					<input type="range" id="volume-range" name="volume" min="0" max="10" />
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,12 @@
+{
+	"env": {
+		"browser": true
+	},
+	"rules": {
+		"strict": "off",
+		"quotes": [2, "double", { "avoidEscape": true }],
+		"indent": [2, "tab"],
+		"no-tabs": 0
+	},
+	"extends": ["airbnb"]
+}
