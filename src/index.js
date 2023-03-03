@@ -41,6 +41,11 @@ soundsBlock.forEach((block, index) => {
 		musicItems.forEach((singleMusic, idx) => {
 			if (index !== idx) singleMusic.pause();
 		});
+
+		iconsBlock.forEach((_, idx) => {
+			iconsBlock[idx].src = iconsImages[idx];
+		});
+
 		if (musicItems[index].paused) {
 			musicItems[index].play();
 			iconsBlock[index].src = iconsImages[index];

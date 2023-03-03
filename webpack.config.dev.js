@@ -16,9 +16,12 @@ module.exports = merge(common, {
 			cache: false,
 		}),
 	],
-	devtool: "inline-source-map",
+	devtool: "source-map",
 	devServer: {
-		port: 9000,
+		static: {
+			directory: path.join(__dirname, "public"),
+		},
 		open: true,
 	},
+	target: "web",
 });

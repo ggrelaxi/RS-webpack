@@ -1,7 +1,6 @@
 const path = require("node:path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
@@ -15,9 +14,7 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: "./public/index.html",
 		}),
-		new MiniCssExtractPlugin({
-			filename: "[name].[contenthash].css",
-		}),
+		new MiniCssExtractPlugin(),
 		new CopyPlugin({
 			patterns: [
 				{
@@ -71,64 +68,23 @@ module.exports = {
 				test: /\.(png|jpg|jpeg|gif)$/i,
 				type: "asset/resource",
 				generator: {
-					filename: "images/[name][ext]",
+					filename: "assets/[name][ext]",
 				},
 			},
 			{
 				test: /\.(svg)$/i,
 				type: "asset/resource",
 				generator: {
-					filename: "icons/[name][ext]",
+					filename: "assets/icons/[name][ext]",
 				},
 			},
 			{
 				test: /\.(ogg|mp3|wav)$/i,
 				type: "asset/resource",
 				generator: {
-					filename: "sounds/[name][ext]",
+					filename: "assets/sounds/[name][ext]",
 				},
 			},
 		],
 	},
-
-	optimization: {
-		minimizer: [
-			"...",
-			new ImageMinimizerPlugin({
-				minimizer: {
-					implementation: ImageMinimizerPlugin.imageminMinify,
-					options: {
-						// Lossless optimization with custom option
-						// Feel free to experiment with options for better result for you
-						plugins: [
-							["gifsicle", { interlaced: true }],
-							["jpegtran", { progressive: true }],
-							["optipng", { optimizationLevel: 5 }],
-							[
-								"svgo",
-								{
-									plugins: [
-										{
-											name: "preset-default",
-											params: {
-												overrides: {
-													removeViewBox: false,
-													addAttributesToSVGElement: {
-														params: {
-															attributes: [{ xmlns: "http://www.w3.org/2000/svg" }],
-														},
-													},
-												},
-											},
-										},
-									],
-								},
-							],
-						],
-					},
-				},
-			}),
-		],
-	},
-	target: "web",
 };
